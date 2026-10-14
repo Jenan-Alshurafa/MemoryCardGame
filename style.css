@@ -1,0 +1,330 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*, a, button {
+  cursor: url('assets/pixelcursor32.png') 0 0, auto !important;
+}
+
+body{
+    font-family: 'Pixelify Sans';
+    background:
+        conic-gradient(#ffe4b5 25%, #ffd9a0 0 50%, #ffe4b5 0 75%, #ffd9a0 0)
+        0 0 / 48px 48px;              /* each square is 24px */
+    padding: 20px;
+    min-height: 100vh;
+
+
+      display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    width: 100%;
+    max-width: 900px;
+
+}
+
+.header{
+    position: relative;
+    isolation: isolate;
+    text-align: center;
+    margin-bottom: 25px;
+    padding: 24px 20px 20px;
+    background: rgb(122, 112, 112);
+    clip-path: polygon(
+        0 10%, 2% 10%, 2% 5%, 4% 5%, 4% 0,
+        96% 0, 96% 5%, 98% 5%, 98% 10%, 100% 10%,
+        100% 90%, 98% 90%, 98% 95%, 96% 95%, 96% 100%,
+        4% 100%, 4% 95%, 2% 95%, 2% 90%, 0 90%
+    );
+    filter: drop-shadow(7px 7px 0 #111);
+}
+
+.header::before{
+    content: "";
+    position: absolute;
+    z-index: 0;
+    inset: 6px;
+    background: white;
+    clip-path: polygon(
+        0 10%, 2% 10%, 2% 5%, 4% 5%, 4% 0,
+        96% 0, 96% 5%, 98% 5%, 98% 10%, 100% 10%,
+        100% 90%, 98% 90%, 98% 95%, 96% 95%, 96% 100%,
+        4% 100%, 4% 95%, 2% 95%, 2% 90%, 0 90%
+    );
+}
+
+.header > *{
+    position: relative;
+    z-index: 1;
+
+}
+
+h1{
+    color: #ff98ba;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.stats{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    filter: drop-shadow(4px 4px 0 #111);   
+}
+
+.stat{
+    --pixel: polygon(
+        0 4px, 4px 4px, 4px 0,
+        calc(100% - 4px) 0, calc(100% - 4px) 4px, 100% 4px,
+        100% calc(100% - 4px), calc(100% - 4px) calc(100% - 4px), calc(100% - 4px) 100%,
+        4px 100%, 4px calc(100% - 4px), 0 calc(100% - 4px)
+    );
+    position: relative;
+    isolation: isolate;
+    padding: 12px 25px;
+    min-width: 110px;
+    background: #ffa07a;                  
+    color: #ffd166;
+    clip-path: var(--pixel);
+}
+
+.stat::before{
+    content: "";
+    position: absolute;
+    inset: 5px;                            
+    z-index: -1;
+    background: white;                  
+    clip-path: var(--pixel);
+}
+
+.stat-label{
+    font-size: 1.5em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #98d8c8;
+    margin-bottom: 5px;
+}
+
+.stat-value{
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+.game-board{
+    max-width: 900px;
+ display: grid;
+ grid-template-columns: repeat(4, minmax(0, 1fr));
+ gap: 15px;
+ margin-bottom: 25px;
+  margin: 0 auto 25px;
+}
+
+.card{
+background: transparent;
+aspect-ratio: 1;
+cursor: pointer;
+position: relative;
+transform-style: preserve-3d;
+transition: transform 0.6s;
+
+}
+
+.card:hover{
+    transform: scale(1.08);
+
+}
+
+.card.flipped{
+    transform: rotateY(180deg);
+
+}
+.card.flipped:hover{
+    transform: scale(1.08) rotateY(180deg);
+
+}
+
+.card.matched{
+ pointer-events: none;
+}
+
+.card-front, .card-back{
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    clip-path: polygon(
+        0 10%, 5% 10%, 5% 5%, 10% 5%, 10% 0,
+        90% 0, 90% 5%, 95% 5%, 95% 10%, 100% 10%,
+        100% 90%, 95% 90%, 95% 95%, 90% 95%, 90% 100%,
+        10% 100%, 10% 95%, 5% 95%, 5% 90%, 0 90%
+    );
+    filter: drop-shadow(0 6px 0 #d4a574);
+}
+
+.card-front{
+    background: white;
+    color: #ff6b9d;
+    font-size: 3.5rem;
+    border: 5px solid #b9e4d9;
+}
+
+
+.card-back{
+    background: white;
+    transform: rotateY(180deg);
+   border: 5px solid #b9e4d9;
+
+}
+
+.card-front img, .card-back img{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.card-front img{
+    object-fit: contain;
+    padding: 12%;
+}
+
+.card-back img{
+    object-fit: cover;
+}
+
+.controls{
+    text-align: center;
+    display: inline-block;
+    filter: drop-shadow(5px 5px 0 #111);
+    display: flex;
+    justify-content: center;
+}
+
+.controls .btn-wrap{
+      filter: drop-shadow(5px 5px 0 #111);
+  }
+
+.btn{
+    --b: 4px;                                /* border thickness */
+    --fill: #b9e4d9;                         /* your original teal */
+    --pixel: polygon(
+        0 var(--b), var(--b) var(--b), var(--b) 0,
+        calc(100% - var(--b)) 0, calc(100% - var(--b)) var(--b), 100% var(--b),
+        100% calc(100% - var(--b)), calc(100% - var(--b)) calc(100% - var(--b)), calc(100% - var(--b)) 100%,
+        var(--b) 100%, var(--b) calc(100% - var(--b)), 0 calc(100% - var(--b))
+    );
+    position: relative;
+    isolation: isolate;
+    font-family: inherit;
+    font-size: 1.5rem;                       /* your original size */
+    padding: 15px 25px;                      /* your original padding */
+    border: none;
+    background:  rgb(122, 112, 112);                   /* outer border color */
+    color: rgb(122, 112, 112);               /* your original text color */
+    cursor: pointer;
+    clip-path: var(--pixel);
+    transition: transform 0.15s;
+}
+
+.btn::before{
+    content: "";
+    position: absolute;
+    inset: var(--b);
+    z-index: -1;
+    background: var(--fill);
+    clip-path: var(--pixel);
+    transition: background 0.15s;
+}
+
+.btn:hover{
+    --fill: #7bb8a8;                         /* your original hover color */
+    transform: translate(-2px, -2px);
+}
+
+.btn:active{
+    transform: translate(3px, 3px);
+}
+
+.controls:has(.btn:active){
+    filter: drop-shadow(1px 1px 0 #111);
+}
+
+
+.model{
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.6);
+justify-content: center;
+align-items: center;
+}
+
+.model.show{
+    display: flex;
+
+}
+
+.model-content{
+    background: white;
+    padding: 40px;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 0 10px 0 #d4a574;
+    border: 6px solid #ff6b9d;
+    animation: bounce 0.5s ease;
+
+}
+
+@keyframes bounce{
+0%, 100%{
+    transform: scale(1);
+}
+50%{
+    transform: scale(1.1);
+}
+}
+
+
+.model-content h2{
+    color: #ff6b9d;
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+
+}
+
+.model-content p{
+    font-size: 1.4rem;
+    margin-bottom: 30px;
+    color: #ffa07a;
+    font-weight: bold;
+}
+
+@media (max-width: 768px){
+    .game-board{
+        grid-template-columns: repeat(3, 1fr);
+    }
+    h1{
+     font-size: 2em;   
+    }
+}
+
+@media (max-width: 480px){
+    .game-board{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    h1{
+     font-size: 1.6em;   
+    }
+    .card-front, .card-back{
+        font-size: 2.5rem;
+    }
+}
