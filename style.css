@@ -11,7 +11,7 @@
 body{
     font-family: 'Pixelify Sans';
     background:
-        conic-gradient(#ffe4b5 25%, #ffd9a0 0 50%, #ffe4b5 0 75%, #ffd9a0 0)
+        conic-gradient(#ffa07a 25%, #fac7b3 0 50%, #ffa07a 0 75%, #f5b69e 0)
         0 0 / 48px 48px;              /* each square is 24px */
     padding: 20px;
     min-height: 100vh;
@@ -34,14 +34,14 @@ body{
     text-align: center;
     margin-bottom: 25px;
     padding: 24px 20px 20px;
-    background: rgb(122, 112, 112);
+    background: #ffa07a;
     clip-path: polygon(
         0 10%, 2% 10%, 2% 5%, 4% 5%, 4% 0,
         96% 0, 96% 5%, 98% 5%, 98% 10%, 100% 10%,
         100% 90%, 98% 90%, 98% 95%, 96% 95%, 96% 100%,
         4% 100%, 4% 95%, 2% 95%, 2% 90%, 0 90%
     );
-    filter: drop-shadow(7px 7px 0 #111);
+    filter: drop-shadow(7px 7px 0 #9e3535);
 }
 
 .header::before{
