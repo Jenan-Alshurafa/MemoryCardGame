@@ -11,7 +11,11 @@
 <body>
  <div class="container">
     <div class="header">
-<h1><i class="fas fa-star"></i> Memory Match <i class="fas fa-star"></i></h1>
+<h1>
+  <svg class="pixel-star"><use href="#pixel-star"/></svg>
+  Memory Match
+  <svg class="pixel-star"><use href="#pixel-star"/></svg>
+</h1>
 <div class="stats">
     <div class="stat">
       <div class="stat-label">moves</div>
@@ -30,19 +34,51 @@
 <div class="game-board" id="gameBoard">  </div>
     <!-- Cards will be dynamically generated here -->
 <div class="controls">
-<button class="btn" onclick="newGame()"><i class="fas fa-redo"></i> New Game</button>
+<button class="btn" onclick="newGame()">
+  <svg class="pixel-icon"><use href="#pixel-redo"/></svg> New Game
+</button>
 </div>
  </div>
  <div class="model" id="winModel">
     <div class="model-content">
-      <h2><i class="fas fa-trophy"></i> You Win! <i class="fas fa-trophy"></i></h2>  
+  <h2>
+  <svg class="pixel-icon"><use href="#pixel-trophy"/></svg>
+  You Win!
+  <svg class="pixel-icon"><use href="#pixel-trophy"/></svg>
+</h2>
       <p>Moves: <span id="finalMoves"></span></p><br><p>Time: <span id="finalTime"></span></p>
     <div class="controls">
-  <button class="btn" onclick="newGame()"><i class="fas fa-redo"></i> Play Again</button> </div>  
+  <button class="btn" onclick="newGame()">
+    <svg class="pixel-icon"><use href="#pixel-redo"/></svg> Play Again
+  </button>
+    </div>  
     </div>
  </div>   
 
   <script src="index.js"></script>  
+
+
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="pixel-star" viewBox="0 0 9 9">
+    <path d="M4 0h1v1H4z M3 1h3v2H3z M0 3h9v1H0z M1 4h7v1H1z M2 5h5v1H2z
+             M2 6h2v1H2z M5 6h2v1H5z M1 7h2v1H1z M6 7h2v1H6z
+             M1 8h1v1H1z M7 8h1v1H7z"/>
+  </symbol>
+
+  <symbol id="pixel-trophy" viewBox="0 0 9 9">
+    <path d="M1 0h7v1H1z M0 1h1v2H0z M2 1h5v2H2z M8 1h1v2H8z
+             M1 3h7v1H1z M2 4h5v1H2z M3 5h3v1H3z M4 6h1v1H4z
+             M3 7h3v1H3z M2 8h5v1H2z"/>
+  </symbol>
+
+  <symbol id="pixel-redo" viewBox="0 0 9 8">
+  <path d="M2 0h5v1H2z M1 1h1v1H1z M6 1h3v1H6z
+           M0 2h1v3H0z M7 2h1v1H7z
+           M8 4h1v1H8z M1 5h1v1H1z M7 5h1v1H7z
+           M2 6h1v1H2z M6 6h1v1H6z M3 7h3v1H3z"/>
+</symbol>
+</svg>
 
 </body>
 </html>

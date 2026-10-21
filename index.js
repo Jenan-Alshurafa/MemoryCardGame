@@ -1,13 +1,16 @@
 
 var images = [
-    "assets/aka.png",
-    "assets/bla.png",
-    "assets/el.png",
-    "assets/goatpool.png",
-    "assets/guitar.png",
-    "assets/hadess.png",
-    "assets/jj.png",
-    "assets/joestar.png",
+    "assets/akatsuki.png",
+    "assets/blackcat.png",
+    "assets/shin.png", 
+    "assets/joestarr.png",
+    "assets/ichi.png",
+    "assets/sun.png",
+    "assets/pochita.png",
+    "assets/deadpool.png",
+    
+  
+   
 ];
 
 var firstcard = null;

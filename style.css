@@ -328,3 +328,28 @@ align-items: center;
         font-size: 2.5rem;
     }
 }
+
+.pixel-star {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;          /* inherits the h1 color */
+  shape-rendering: crispEdges; /* keeps the pixels sharp */
+  vertical-align: -0.1em;      /* lines up with the text baseline */
+}
+
+.pixel-icon {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;          /* inherits the h1 color */
+  shape-rendering: crispEdges; /* keeps the pixels sharp */
+  vertical-align: -0.1em;      /* lines up with the text baseline */
+}
+
+.model-content h2 .pixel-icon { 
+    color: #ffd166;
+ }
+
+ .btn .pixel-icon {
+  margin-right: 0.3em;
+  vertical-align: -0.12em;
+}
