@@ -25,8 +25,8 @@ var timerinterval;
 
 var matchSound = new Audio("assets/match.mp3");
 var wrongSound = new Audio("assets/wrong.mp3");
-matchSound.volume = 0.6;
-wrongSound.volume = 0.6;
+matchSound.volume = 0.3;
+wrongSound.volume = 0.3;
 
 function playSound(sound) {
     sound.currentTime = 0;               // restart if it's still playing
