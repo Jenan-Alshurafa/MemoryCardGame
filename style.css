@@ -1,109 +1,109 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-*, a, button {
-  cursor: url('assets/pixelcursor32.png') 0 0, auto !important;
+*,
+a,
+button {
+    cursor: url('assets/pixelcursor32.png') 0 0, auto !important;
 }
 
-body{
+body {
     font-family: 'Pixelify Sans';
     background:
-        conic-gradient(#ffa07a 25%, #fac7b3 0 50%, #ffa07a 0 75%, #f5b69e 0)
-        0 0 / 48px 48px;              /* each square is 24px */
+        conic-gradient(#ffa07a 25%, #fac7b3 0 50%, #ffa07a 0 75%, #f5b69e 0) 0 0 / 48px 48px;
     padding: 20px;
     min-height: 100vh;
 
-
-      display: flex;
+    display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.container{
+.container {
     width: 100%;
     max-width: 900px;
-
 }
 
-.header{
+.header {
     position: relative;
     isolation: isolate;
     text-align: center;
     margin-bottom: 25px;
     padding: 24px 20px 20px;
     background: #ffa07a;
-    clip-path: polygon(
-        0 10%, 2% 10%, 2% 5%, 4% 5%, 4% 0,
-        96% 0, 96% 5%, 98% 5%, 98% 10%, 100% 10%,
-        100% 90%, 98% 90%, 98% 95%, 96% 95%, 96% 100%,
-        4% 100%, 4% 95%, 2% 95%, 2% 90%, 0 90%
-    );
+    clip-path: polygon(0 10%, 2% 10%, 2% 5%, 4% 5%, 4% 0,
+            96% 0, 96% 5%, 98% 5%, 98% 10%, 100% 10%,
+            100% 90%, 98% 90%, 98% 95%, 96% 95%, 96% 100%,
+            4% 100%, 4% 95%, 2% 95%, 2% 90%, 0 90%);
     filter: drop-shadow(7px 7px 0 #9e3535);
 }
 
-.header::before{
+.header::before {
     content: "";
     position: absolute;
     z-index: 0;
     inset: 6px;
     background: white;
-    clip-path: polygon(
-        0 10%, 2% 10%, 2% 5%, 4% 5%, 4% 0,
-        96% 0, 96% 5%, 98% 5%, 98% 10%, 100% 10%,
-        100% 90%, 98% 90%, 98% 95%, 96% 95%, 96% 100%,
-        4% 100%, 4% 95%, 2% 95%, 2% 90%, 0 90%
-    );
+    clip-path: polygon(0 10%, 2% 10%, 2% 5%, 4% 5%, 4% 0,
+            96% 0, 96% 5%, 98% 5%, 98% 10%, 100% 10%,
+            100% 90%, 98% 90%, 98% 95%, 96% 95%, 96% 100%,
+            4% 100%, 4% 95%, 2% 95%, 2% 90%, 0 90%);
 }
 
-.header > *{
+.header>* {
     position: relative;
     z-index: 1;
-
 }
 
-h1{
+h1 {
     color: #ff98ba;
     font-size: 2.5rem;
     margin-bottom: 20px;
 }
 
-.stats{
+.stage-label {
+    color: #98d8c8;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.stats {
     display: flex;
     justify-content: center;
     gap: 15px;
     flex-wrap: wrap;
-    filter: drop-shadow(4px 4px 0 #111);   
+    filter: drop-shadow(4px 4px 0 #111);
 }
 
-.stat{
-    --pixel: polygon(
-        0 4px, 4px 4px, 4px 0,
-        calc(100% - 4px) 0, calc(100% - 4px) 4px, 100% 4px,
-        100% calc(100% - 4px), calc(100% - 4px) calc(100% - 4px), calc(100% - 4px) 100%,
-        4px 100%, 4px calc(100% - 4px), 0 calc(100% - 4px)
-    );
+.stat {
+    --pixel: polygon(0 4px, 4px 4px, 4px 0,
+            calc(100% - 4px) 0, calc(100% - 4px) 4px, 100% 4px,
+            100% calc(100% - 4px), calc(100% - 4px) calc(100% - 4px), calc(100% - 4px) 100%,
+            4px 100%, 4px calc(100% - 4px), 0 calc(100% - 4px));
     position: relative;
     isolation: isolate;
     padding: 12px 25px;
     min-width: 110px;
-    background: #ffa07a;                  
+    background: #ffa07a;
     color: #ffd166;
     clip-path: var(--pixel);
 }
 
-.stat::before{
+.stat::before {
     content: "";
     position: absolute;
-    inset: 5px;                            
+    inset: 5px;
     z-index: -1;
-    background: white;                  
+    background: white;
     clip-path: var(--pixel);
 }
 
-.stat-label{
+.stat-label {
     font-size: 1.5em;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -111,127 +111,143 @@ h1{
     margin-bottom: 5px;
 }
 
-.stat-value{
+.stat-value {
     font-size: 1.8em;
     font-weight: bold;
 }
 
-.game-board{
+.game-board {
     max-width: 900px;
- display: grid;
- grid-template-columns: repeat(4, minmax(0, 1fr));
- gap: 15px;
- margin-bottom: 25px;
-  margin: 0 auto 25px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 15px;
+    margin: 0 auto 25px;
 }
 
-.card{
-background: transparent;
-aspect-ratio: 1;
-cursor: pointer;
-position: relative;
-transform-style: preserve-3d;
-transition: transform 0.6s;
-
+/* Stage layouts: these are more specific than .game-board,
+   so they also win over the media queries below */
+.game-board[data-stage="1"] {
+    /* 4 cards: 2x2 */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 380px;
 }
 
-.card:hover{
+.game-board[data-stage="2"] {
+    /* 8 cards: 4x2 */
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    max-width: 600px;
+}
+
+.game-board[data-stage="3"],
+.game-board[data-stage="4"] {
+    /* 16 cards: 4x4 */
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    max-width: 900px;
+}
+
+.card {
+    background: transparent;
+    aspect-ratio: 1;
+    cursor: pointer;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.card:hover {
     transform: scale(1.08);
-
 }
 
-.card.flipped{
+.card.flipped {
     transform: rotateY(180deg);
-
 }
-.card.flipped:hover{
+
+.card.flipped:hover {
     transform: scale(1.08) rotateY(180deg);
-
 }
 
-.card.matched{
- pointer-events: none;
+.card.matched {
+    pointer-events: none;
 }
 
-.card-front, .card-back{
+.card-front,
+.card-back {
     position: absolute;
     inset: 0;
     backface-visibility: hidden;
-    clip-path: polygon(
-        0 10%, 5% 10%, 5% 5%, 10% 5%, 10% 0,
-        90% 0, 90% 5%, 95% 5%, 95% 10%, 100% 10%,
-        100% 90%, 95% 90%, 95% 95%, 90% 95%, 90% 100%,
-        10% 100%, 10% 95%, 5% 95%, 5% 90%, 0 90%
-    );
+    clip-path: polygon(0 10%, 5% 10%, 5% 5%, 10% 5%, 10% 0,
+            90% 0, 90% 5%, 95% 5%, 95% 10%, 100% 10%,
+            100% 90%, 95% 90%, 95% 95%, 90% 95%, 90% 100%,
+            10% 100%, 10% 95%, 5% 95%, 5% 90%, 0 90%);
     filter: drop-shadow(0 6px 0 #d4a574);
 }
 
-.card-front{
+.card-front {
     background: white;
     color: #ff6b9d;
     font-size: 3.5rem;
     border: 5px solid #b9e4d9;
 }
 
-
-.card-back{
+.card-back {
     background: white;
     transform: rotateY(180deg);
-   border: 5px solid #b9e4d9;
-
+    border: 5px solid #b9e4d9;
 }
 
-.card-front img, .card-back img{
+.card-front img,
+.card-back img {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
 }
 
-.card-front img{
+.card-front img {
     object-fit: contain;
     padding: 12%;
 }
 
-.card-back img{
+.card-back img {
     object-fit: cover;
 }
 
-.controls{
+.controls {
     text-align: center;
-    display: inline-block;
     filter: drop-shadow(5px 5px 0 #111);
     display: flex;
     justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
-.controls .btn-wrap{
-      filter: drop-shadow(5px 5px 0 #111);
-  }
+.controls .btn-wrap {
+    filter: drop-shadow(5px 5px 0 #111);
+}
 
-.btn{
-    --b: 4px;                                /* border thickness */
-    --fill: #b9e4d9;                         /* your original teal */
-    --pixel: polygon(
-        0 var(--b), var(--b) var(--b), var(--b) 0,
-        calc(100% - var(--b)) 0, calc(100% - var(--b)) var(--b), 100% var(--b),
-        100% calc(100% - var(--b)), calc(100% - var(--b)) calc(100% - var(--b)), calc(100% - var(--b)) 100%,
-        var(--b) 100%, var(--b) calc(100% - var(--b)), 0 calc(100% - var(--b))
-    );
+.btn {
+    --b: 4px;
+    /* border thickness */
+    --fill: #b9e4d9;
+    --pixel: polygon(0 var(--b), var(--b) var(--b), var(--b) 0,
+            calc(100% - var(--b)) 0, calc(100% - var(--b)) var(--b), 100% var(--b),
+            100% calc(100% - var(--b)), calc(100% - var(--b)) calc(100% - var(--b)), calc(100% - var(--b)) 100%,
+            var(--b) 100%, var(--b) calc(100% - var(--b)), 0 calc(100% - var(--b)));
     position: relative;
     isolation: isolate;
     font-family: inherit;
-    font-size: 1.5rem;                       /* your original size */
-    padding: 15px 25px;                      /* your original padding */
+    font-size: 1.5rem;
+    padding: 15px 25px;
     border: none;
-    background:  rgb(122, 112, 112);                   /* outer border color */
-    color: rgb(122, 112, 112);               /* your original text color */
+    background: rgb(122, 112, 112);
+    /* outer border color */
+    color: rgb(122, 112, 112);
     cursor: pointer;
     clip-path: var(--pixel);
     transition: transform 0.15s;
 }
 
-.btn::before{
+.btn::before {
     content: "";
     position: absolute;
     inset: var(--b);
@@ -241,115 +257,241 @@ transition: transform 0.6s;
     transition: background 0.15s;
 }
 
-.btn:hover{
-    --fill: #7bb8a8;                         /* your original hover color */
+.btn:hover {
+    --fill: #7bb8a8;
     transform: translate(-2px, -2px);
 }
 
-.btn:active{
+.btn:active {
     transform: translate(3px, 3px);
 }
 
-.controls:has(.btn:active){
+.controls:has(.btn:active) {
     filter: drop-shadow(1px 1px 0 #111);
 }
 
-
-.model{
-display: none;
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background: rgba(0, 0, 0, 0.6);
-justify-content: center;
-align-items: center;
+.model {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
 }
 
-.model.show{
+.model.show {
     display: flex;
-
 }
 
-.model-content{
-    background: white;
+.model-content {
+    --step: 6px;
+    --pixel: polygon(0 var(--step), var(--step) var(--step), var(--step) 0,
+            calc(100% - var(--step)) 0, calc(100% - var(--step)) var(--step), 100% var(--step),
+            100% calc(100% - var(--step)), calc(100% - var(--step)) calc(100% - var(--step)), calc(100% - var(--step)) 100%,
+            var(--step) 100%, var(--step) calc(100% - var(--step)), 0 calc(100% - var(--step)));
+    position: relative;
+    isolation: isolate;
     padding: 40px;
-    border-radius: 30px;
     text-align: center;
-    box-shadow: 0 10px 0 #d4a574;
-    border: 6px solid #ff6b9d;
+    filter: drop-shadow(8px 8px 0 #d4a574);
+    /* hard pixel shadow */
     animation: bounce 0.5s ease;
-
 }
 
-@keyframes bounce{
-0%, 100%{
-    transform: scale(1);
-}
-50%{
-    transform: scale(1.1);
-}
+/* outer pink border */
+.model-content::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: #ff6b9d;
+    clip-path: var(--pixel);
 }
 
+/* white inside */
+.model-content::after {
+    content: "";
+    position: absolute;
+    inset: var(--step);
+    z-index: -1;
+    background: white;
+    clip-path: var(--pixel);
+}
 
-.model-content h2{
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.model-content h2 {
     color: #ff6b9d;
     font-size: 2.8rem;
     margin-bottom: 20px;
-
 }
 
-.model-content p{
+.model-content p {
     font-size: 1.4rem;
     margin-bottom: 30px;
     color: #ffa07a;
     font-weight: bold;
 }
 
-@media (max-width: 768px){
-    .game-board{
+/* Pixel icons */
+.pixel-icon {
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+    shape-rendering: crispEdges;
+    vertical-align: -0.1em;
+}
+
+.model-content h2 .pixel-icon {
+    color: #ffd166;
+}
+
+.btn .pixel-icon {
+    margin-right: 0.3em;
+    vertical-align: -0.12em;
+}
+
+@media (max-width: 768px) {
+    .game-board {
         grid-template-columns: repeat(3, 1fr);
     }
-    h1{
-     font-size: 2em;   
+
+    h1 {
+        font-size: 2em;
     }
 }
 
-@media (max-width: 480px){
-    .game-board{
+@media (max-width: 480px) {
+    .game-board {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
     }
-    h1{
-     font-size: 1.6em;   
+
+    .game-board[data-stage="2"],
+    .game-board[data-stage="3"],
+    .game-board[data-stage="4"] {
+        gap: 8px;
     }
-    .card-front, .card-back{
+
+    h1 {
+        font-size: 1.6em;
+    }
+
+    .stage-label {
+        font-size: 1.1rem;
+    }
+
+    .card-front,
+    .card-back {
         font-size: 2.5rem;
     }
 }
 
-.pixel-star {
-  width: 1em;
-  height: 1em;
-  fill: currentColor;          /* inherits the h1 color */
-  shape-rendering: crispEdges; /* keeps the pixels sharp */
-  vertical-align: -0.1em;      /* lines up with the text baseline */
+
+.stat-value.warning {
+    color: red;
 }
 
-.pixel-icon {
-  width: 1em;
-  height: 1em;
-  fill: currentColor;          /* inherits the h1 color */
-  shape-rendering: crispEdges; /* keeps the pixels sharp */
-  vertical-align: -0.1em;      /* lines up with the text baseline */
+#timer {
+    font-size: 2rem;
+    text-align: center;
+    margin: 10px 0;
 }
 
-.model-content h2 .pixel-icon { 
-    color: #ffd166;
- }
+#timer.warning {
+    color: red;
+}
 
- .btn .pixel-icon {
-  margin-right: 0.3em;
-  vertical-align: -0.12em;
+/* last 10 seconds */
+
+#overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+#overlay.hidden {
+    display: none;
+}
+
+.popup {
+    background: #222;
+    color: #fff;
+    padding: 30px 40px;
+    text-align: center;
+    border: 4px solid #fff;
+}
+
+.popup button {
+    margin: 10px 6px 0;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+
+/* ---- match effect ---- */
+.card.matched{
+    animation: pop 0.5s ease;
+}
+.card.matched .card-back{
+    border-color: #98d8c8;
+    filter: drop-shadow(0 6px 0 #98d8c8);
+}
+
+@keyframes pop{
+    0%, 100%{ transform: rotateY(180deg) scale(1); }
+    50%{ transform: rotateY(180deg) scale(1.2); }
+}
+
+.spark{
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    pointer-events: none;
+    z-index: 50;
+    animation: spark 0.6s ease-out forwards;
+}
+
+@keyframes spark{
+    0%{
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+    100%{
+        transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(0);
+        opacity: 0;
+    }
+}
+
+/* ---- wrong effect ---- */
+.card.wrong{
+    animation: shake 0.4s;
+}
+.card.wrong .card-back{
+    border-color: #ff6b6b;
+}
+
+@keyframes shake{
+    0%, 100%{ transform: rotateY(180deg) translateX(0); }
+    20%{ transform: rotateY(180deg) translateX(-8px); }
+    40%{ transform: rotateY(180deg) translateX(8px); }
+    60%{ transform: rotateY(180deg) translateX(-6px); }
+    80%{ transform: rotateY(180deg) translateX(6px); }
 }
