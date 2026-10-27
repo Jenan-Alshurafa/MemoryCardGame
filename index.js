@@ -28,6 +28,13 @@ var wrongSound = new Audio("assets/wrong.mp3");
 matchSound.volume = 0.3;
 wrongSound.volume = 0.3;
 
+
+var loseSound = new Audio("assets/lose.mp3");
+var winSound = new Audio("assets/winn.wav");
+loseSound.volume = 0.3;
+winSound.volume = 0.3;
+
+
 function playSound(sound) {
     sound.currentTime = 0;               // restart if it's still playing
     sound.play().catch(function () {});
@@ -210,6 +217,7 @@ function endGame() {
     clearInterval(timerinterval);
 
     var last = stage === STAGES.length - 1;
+    if (last) playSound(winSound); 
 
     document.getElementById("winTitle").textContent = last ? "You Win!" : "Stage Complete!";
     document.getElementById("nextBtn").style.display = last ? "none" : "";
@@ -224,6 +232,7 @@ function loseGame() {
     gameOver = true;
     canflip = false;
     clearInterval(timerinterval);
+      playSound(loseSound);
     document.getElementById("loseModel").classList.add("show");
 }
 
